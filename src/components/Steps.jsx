@@ -1,4 +1,6 @@
 import { Fragment, useState } from "react";
+import Button from "./Button";
+import StepMsg from "./StepMsg";
 
 const messages = [
   "Learn React ⚛️",
@@ -28,12 +30,16 @@ const Steps = () => {
             <div className={step >= 2 && "active"}>2</div>
             <div className={step >= 3 && "active"}>3</div>
           </div>
-          <p className="message">
-            Step {step} : {messages[step - 1]}
-          </p>
+
+          <StepMsg step={step}>{messages[step - 1]}</StepMsg>
+
           <div className="buttons">
-            <button onClick={() => handlePrevious()}>Previous</button>
-            <button onClick={() => handleNext()}>Next</button>
+            <Button onClick={handlePrevious}>
+              <span>👩🏻‍🤝‍👩🏻</span>Previous
+            </Button>
+            <Button onClick={handleNext}>
+              Next<span>😫</span>
+            </Button>
           </div>
         </div>
       )}
